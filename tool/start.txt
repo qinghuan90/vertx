@@ -1,0 +1,2 @@
+@echo off
+%CD%\jre\bin\java.exe -jar %CD%\vertx-1.0.jar
