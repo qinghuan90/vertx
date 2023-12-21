@@ -46,6 +46,18 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <!-- 不需要进行编码的文件后缀 -->
+          <nonFilteredFileExtensions>
+            <nonFilteredFileExtension>png</nonFilteredFileExtension>
+            <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+          </nonFilteredFileExtensions>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.4</version> <!-- 使用插件的最新版本 -->
         <executions>
@@ -61,6 +73,7 @@
                 </transformer>
               </transformers>
             </configuration>
+
           </execution>
         </executions>
       </plugin>

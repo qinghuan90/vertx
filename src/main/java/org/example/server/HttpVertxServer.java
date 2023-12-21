@@ -29,7 +29,7 @@ public class HttpVertxServer extends AbstractVerticle {
                     .end("{\"code\":200}");
         });
 
-        vertx.createHttpServer().requestHandler(router).listen(8080, listenHander());
+        vertx.createHttpServer().requestHandler(router).listen(8090, listenHander());
     }
 
     public Handler<AsyncResult<HttpServer>> listenHander() {
@@ -37,6 +37,7 @@ public class HttpVertxServer extends AbstractVerticle {
            if (listenResult.failed()) {
                System.out.println("Could not start HTTP server");
                listenResult.cause().printStackTrace();
+               System.exit(0);
            } else {
                System.out.println("Server started");
            }
