@@ -1,6 +1,8 @@
 package org.example.tool;
 
 import org.example.VertxApp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +17,10 @@ import java.nio.charset.StandardCharsets;
  * @description: windows系统托盘功能
  * @date 2023/12/21
  */
+
 public class TrayTool {
 
+    private static final Logger logger = LoggerFactory.getLogger(TrayTool.class);
     public static void trayStart() {
         // 检查是否支持系统托盘
         if (SystemTray.isSupported()) {
@@ -51,12 +55,13 @@ public class TrayTool {
                     System.exit(0);
                 }
             });
+
+            // 打印日志
+            JOptionPane.showMessageDialog(null, "启动成功！");
         } else {
-            System.out.println("系统不支持系统托盘");
+            logger.warn("系统不支持系统托盘");
         }
 
-        // 在这里执行你的应用程序逻辑
-        // 例如，模拟一些运行成功的操作
-        JOptionPane.showMessageDialog(null, "启动成功！");
+
     }
 }
